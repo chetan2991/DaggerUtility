@@ -6,10 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import javax.inject.Inject;
 import javax.inject.Named;
-
 import okhttp3.OkHttpClient;
 
 public class MainActivity extends AppCompatActivity
@@ -19,10 +17,12 @@ public class MainActivity extends AppCompatActivity
     @Inject
     SharedPreferences mSharedPreferences;
 
+    //utility of @Named annotation of dagger
     @Inject
     @Named("OkkHttpClientWithoutCache")
     OkHttpClient mOkkHttpClientWithoutCache;
 
+    // utylity of @Named annotation of dagger
     @Inject
     @Named("OkkHttpClientWithCache")
     OkHttpClient mOkkHttpClientWithCache;
@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+
         injectWithNamed = ( Button  ) findViewById( R.id.checkedInjectWithNamed );
 
         injectWithNamed.setOnClickListener(new View.OnClickListener() {
@@ -94,13 +95,7 @@ public class MainActivity extends AppCompatActivity
     protected void onResume()
     {
         super.onResume();
-
-
-
     }
-
-
-
 
     @Override
     protected void onStart()
